@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
 				<div id="pokedex">
-					<h1 class="text--yellow">Pokedex</h1>
+					<Pokedex />
 				</div>
 			</div>
 		</div>
@@ -11,9 +11,12 @@
 </template>
 
 <script>
-
+import Pokedex from './components/Pokedex.vue'
 export default {
 	name: 'App',
+	components: {
+		Pokedex,
+	},
 };
 </script>
 
@@ -21,8 +24,9 @@ export default {
 #pokedex {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
-	margin: 0 auto;
-	padding: 24px;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 20px);
+	padding: 20px;
 }
 </style>
