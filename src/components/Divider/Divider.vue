@@ -1,13 +1,12 @@
 <template functional>
-	<div class="divider bg--red-01">
-		<div class="arc arc--top bg--red-04"></div>
-		<div class="arc arc--bottom bg--red-04"></div>
+	<div class="divider bg--red-01 position-absolute">
+		<div class="arc arc--top bg--red-04 position-absolute"></div>
+		<div class="arc arc--bottom bg--red-04 position-absolute"></div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
 .divider {
-	position: absolute;
 	height: calc(100% - 40px);
 	width: 40px;
 	left: calc(50% - 20px);
@@ -15,7 +14,6 @@
 	box-shadow: inset 10px 0 0 0 color('red-00'), inset -10px 0 0 0 color('red-03');
 
 	.arc {
-		position: absolute;
 		height: 4px;
 		width: 100%;
 

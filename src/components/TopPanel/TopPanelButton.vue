@@ -1,5 +1,5 @@
 <template>
-	<button class="top-panel__button position-relative p-0"></button>
+	<button class="top-panel__button position-relative p-0" />
 </template>
 
 <script>
