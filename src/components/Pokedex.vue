@@ -1,15 +1,15 @@
 <template>
-	<div class="pokedex">
+	<div class="pokedex position-relative d-flex flex-colum w-100 h-100">
 		<TopPanel />
-		<!-- <LeftPanel class="pokedex--left" />
-		<Divider />
+		<LeftPanel class="pokedex--left" />
+		<!--  <Divider />
 		<RightPanel class="pokedex--right" /> -->
 	</div>
 </template>
 
 <script>
 	import TopPanel from './TopPanel/TopPanel.vue';
-	// import LeftPanel from './LeftPanel/LeftPanel.vue';
+	import LeftPanel from './LeftPanel/LeftPanel.vue';
 	// import RightPanel from './RightPanel/RightPanel.vue';
 	// import Divider from './Divider/Divider.vue';
 
@@ -17,7 +17,7 @@
 		name: 'Pokedex',
 		components: {
 			TopPanel,
-			// LeftPanel,
+			LeftPanel,
 			// RightPanel,
 			// Divider,
 		},
@@ -26,12 +26,7 @@
 
 <style lang="scss" scoped>
 	.pokedex {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		width: 100%;
 		max-width: 960px;
-		height: 100%;
 
 		@media (min-width: $viewport-medium) {
 			max-height: 700px;

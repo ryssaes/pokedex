@@ -1,5 +1,5 @@
 <template>
-	<button class="top-panel__button" />
+	<button class="top-panel__button position-relative p-0"></button>
 </template>
 
 <script>
@@ -10,8 +10,6 @@
 
 <style lang="scss" scoped>
 	.top-panel__button {
-		position: relative;
-		padding: 0;
 		border-radius: 50%;
 		border: 2px solid color(white);
 		transition: filter 0.3s ease-in-out;

@@ -1,6 +1,6 @@
 <template>
-	<div class="panel bg--red-04">
-		<div class="container bg--red-01">
+	<div class="panel bg--red-04 position-absolute">
+		<div class="container bg--red-01 d-flex align-items-start">
 			<TopPanelButton v-for="(button, index) in buttons" :key="index" v-bind="button" />
 		</div>
 	</div>
@@ -29,7 +29,6 @@
 
 <style lang="scss" scoped>
 	.panel {
-		position: absolute;
 		width: 100%;
 		clip-path: polygon(0 0, 100% 0, 100% 41px, 270px 41px, 200px 100%, 0 100%);
 		z-index: 1;
@@ -39,9 +38,7 @@
 		}
 
 		.container {
-			display: flex;
 			padding: 10px;
-			align-items: flex-start;
 			height: 75px;
 			clip-path: polygon(0 0, 100% 0, 100% 38px, 270px 38px, 200px 72px, 0 72px);
 			box-shadow: inset -10px 0 0 0 color('red-03');
