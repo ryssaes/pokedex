@@ -2,8 +2,8 @@
 	<div class="pokedex position-relative d-flex flex-colum w-100 h-100">
 		<TopPanel />
 		<LeftPanel class="pokedex--left" />
-		<!--  <Divider />
-		<RightPanel class="pokedex--right" /> -->
+		<Divider />
+		<!--  <RightPanel class="pokedex--right" /> -->
 	</div>
 </template>
 
@@ -11,7 +11,7 @@
 	import TopPanel from './TopPanel/TopPanel.vue';
 	import LeftPanel from './LeftPanel/LeftPanel.vue';
 	// import RightPanel from './RightPanel/RightPanel.vue';
-	// import Divider from './Divider/Divider.vue';
+	import Divider from './Divider/Divider.vue';
 
 	export default {
 		name: 'Pokedex',
@@ -19,7 +19,7 @@
 			TopPanel,
 			LeftPanel,
 			// RightPanel,
-			// Divider,
+			Divider,
 		},
 	};
 </script>
