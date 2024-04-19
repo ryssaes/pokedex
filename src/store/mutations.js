@@ -40,4 +40,29 @@ export default {
 		state.listHasError = false;
 		state.searchHasError = false;
 	},
+
+	// Adicionar o único pokemon que foi pesquisado
+	setPokemonSearched(pokemon) {
+		// Substitui a lista principal da Pokédex pelo Pokémon pesquisado
+		state.list = [pokemon];
+	},
+
+	// Informar que a pesquisa está ocorrendo
+	setIsSearching(flag) {
+		// Define o estado de isSearching com o valor fornecido
+		state.isSearching = flag;
+	},
+
+	// Informar se a pesquisa foi feita por um Pokémon específico
+	setIsPokemonSearch(flag) {
+		// Define o estado de isPokemonSearch com o valor fornecido
+		state.isPokemonSearch = flag;
+	},
+
+	// Informar se ocorreu um erro durante a pesquisa
+	setSearchHasError(flag) {
+		// Define o estado de searchHasError com o valor fornecido
+		state.searchHasError = flag;
+	}
+
 };
