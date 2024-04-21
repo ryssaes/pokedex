@@ -1,10 +1,10 @@
-import pokeApi from '@/services/pokeapi'; // Importa o módulo de serviço pokeApi, que contém funções para fazer requisições à API da Pokédex.
-import state from './state'; // Importa o objeto de estado da aplicação Vue relacionado à Pokédex.
+import PokeAPI from '@/services/pokeapi'; // Importa o módulo de serviço PokeAPI, que contém funções para interagir com a API do Pokémon.
+
+import state from './state'; // Importa o objeto de estado da aplicação relacionado à Pokédex.
 import mutations from './mutations'; // Importa o objeto de mutações que contém os métodos para modificar o estado da aplicação.
-import { search } from 'core-js/fn/symbol'; // Importa a função de busca (search) do pacote core-js, mas não é utilizada neste trecho de código.
 
 export default {
-	async getPokemons() { // Define um método assíncrono para obter os Pokémon.
+	async getPokemons() {
 		// Extrai os métodos de mutação do objeto mutations
 		const {
 			setList,
@@ -13,29 +13,30 @@ export default {
 			setListHasNext,
 			setListHasCompleted,
 			updateOffset,
-		} = mutations; // Extrai os métodos específicos de mutação do objeto mutations.
+		} = mutations;
 
 		try {
-			// Define o estado de isPokemonSearch e listHasError como false para limpar possíveis estados anteriores
+			// Define o estado de busca e de erro como falso para limpar possíveis estados anteriores.
 			setIsPokemonSearch(false);
 			setListHasError(false);
 
-			// Faz a requisição à API da Pokédex para obter a lista de pokémons com base no limite e deslocamento atuais
-			const pokemonsList = await pokeApi.getPokemons({ limit: state.limit, offset: state.offset });
+			// Faz a requisição à API do Pokémon para obter a lista de pokémons com base no limite e deslocamento atuais.
+			const pokemonsList = await PokeAPI.getPokemons({ limit: state.limit, offset: state.offset });
 
-			// Verifica se a lista de pokémons foi retornada com sucesso e se possui resultados
+			// Verifica se a lista de pokémons foi retornada com sucesso e se possui resultados.
 			if (pokemonsList?.results?.length) {
-				// Prepara uma lista de requisições individuais para obter informações detalhadas de cada pokémon
-				const prepareInfo = pokemonsList.results.map(item => pokeApi.getPokemonByName(item.name));
+				// Prepara uma lista de requisições individuais para obter informações detalhadas de cada pokémon.
+				const prepareInfo = pokemonsList.results.map(item => PokeAPI.getPokemonByName(item.name));
 
-				// Aguarda todas as requisições individuais serem concluídas
+				// Aguarda todas as requisições individuais serem concluídas.
 				const pokemonsInfo = await Promise.all(prepareInfo);
 
-				// Chama o método de mutação para adicionar os pokémons à lista principal da Pokédex
-				setList(pokemonsList);
+				// Chama o método de mutação para adicionar os pokémons à lista principal da Pokédex.
+				setList(pokemonsInfo);
 			}
 
-			if (pokemonsList?.next) { // Se houver uma próxima página de resultados.
+			// Verifica se há uma próxima página de resultados.
+			if (pokemonsList?.next) {
 				setListHasNext(true); // Ativa a flag indicando que há mais resultados disponíveis.
 				updateOffset(); // Atualiza o deslocamento para a próxima página.
 			} else {
@@ -47,47 +48,51 @@ export default {
 		}
 	},
 
-	async getPokemonByName(name){
+	async getPokemonByName(name) {
 		const { setPokemonSearched } = mutations;
 
-		const pokemon = await pokeApi.getPokemonByName(name);
+		// Obtém informações sobre um Pokémon específico pelo nome.
+		const pokemon = await PokeAPI.getPokemonByName(name);
 
-		if(pokemon){
-			setPokemonSearched(pokemon);
+		if (pokemon) {
+			setPokemonSearched(pokemon); // Define o Pokémon obtido como o Pokémon buscado.
 		}
 	},
 
-	async searchPokemon(name){ // Define um método assíncrono para buscar um Pokémon pelo nome.
+	async searchPokemon(name) {
 		const {
 			setIsPokemonSearch,
 			setIsSearching,
 			setPokemonSearched,
-			setListHasError,
+			setSearchHasError,
 			resetList,
-		} = mutations; // Extrai os métodos específicos de mutação do objeto mutations.
+		} = mutations;
 
-		if (!name){ // Se o nome fornecido for vazio.
+		// Se o nome de pesquisa for vazio, limpa a lista e sai da função.
+		if (!name) {
 			resetList(); // Limpa a lista de Pokémon.
 			return; // Sai do método.
 		}
 
-		try{
+		try {
 			setSearchHasError(false); // Limpa o estado de erro da busca.
 			setIsSearching(true); // Ativa o estado de busca.
 			setIsPokemonSearch(true); // Ativa o estado indicando que a busca é por um Pokémon.
 
-			const pokemon = state.list.find(info => info.name === name.toLowercase()); // Procura o Pokémon na lista de Pokémon atual.
+			// Procura o Pokémon na lista temporária de pokémons.
+			const pokemon = state.tmpList.find(info => info.name.toLowerCase() === name.toLowerCase());
 
-			if(pokemon) { // Se o Pokémon for encontrado na lista.
+			// Se o Pokémon for encontrado na lista temporária.
+			if (pokemon) {
 				setPokemonSearched(pokemon); // Define o Pokémon encontrado como o Pokémon buscado.
 				return; // Sai do método.
 			}
 
-			await this.getPokemonByName(name); // Se o Pokémon não estiver na lista, busca o Pokémon pelo nome.
+			await this.getPokemonByName(name); // Se o Pokémon não estiver na lista temporária, busca o Pokémon pelo nome.
 		} catch (error) {
 			setSearchHasError(true); // Se houver um erro durante a busca, define o estado de erro da busca.
 		} finally {
 			setIsSearching(false); // Finaliza o estado de busca.
 		}
-	}
+	},
 };

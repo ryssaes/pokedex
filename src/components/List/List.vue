@@ -1,16 +1,65 @@
 <template>
-	<ul class="list text--white bg--black d-flex flex-colum w-100 h-100"></ul>
+	<ul class="list text--white bg--black d-flex flex-column">
+		<p v-if="isSearching" class="list--message">Looking for the pokemon</p>
+		<p v-else-if="hasSearchError" class="list--message">We couldn't find this pokemon</p>
+		<ListItem v-else-if="isPokemonSearch" v-bind="pokemonsList[0]" />
+		<template v-else>
+			<ListItem v-for="pokemon in pokemonsList" :key="pokemon.id" v-bind="pokemon" />
+			<infinite-loading @infinite="infiniteHandler" />
+		</template>
+	</ul>
 </template>
 
 <script>
+import { state, getters, actions } from '@/store';
+
+import ListItem from './ListItem.vue';
 
 export default {
 	name: 'List',
+	components: {
+		ListItem,
+	},
+	computed: {
+		pokemonsList() {
+			return getters.pokemonsInfo;
+		},
+		isSearching() {
+			return state.isSearching;
+		},
+		isPokemonSearch() {
+			return state.isPokemonSearch;
+		},
+		hasSearchError() {
+			return state.searchHasError;
+		},
+	},
+	methods: {
+		async infiniteHandler($state) {
+			await actions.getPokemons();
+
+			if (state.listHasNext) {
+				$state.loaded();
+				return;
+			}
+
+			if (state.listHasCompleted) {
+				$state.complete();
+				return;
+			}
+
+			if (state.listHasError) {
+				$state.error();
+			}
+		},
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 .list {
+	width: 100%;
+	height: 100%;
 	border: 10px solid color(white);
 	border-radius: 8px;
 	padding: 0 8px 8px 0;

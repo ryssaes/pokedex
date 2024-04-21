@@ -2,6 +2,8 @@
 import state from './state';
 
 export default {
+
+
 	// Método para atualizar o deslocamento na busca dos resultados da Pokédex
 	updateOffset() {
 		// Incrementa o deslocamento pelo limite atual
@@ -64,5 +66,6 @@ export default {
 		// Define o estado de searchHasError com o valor fornecido
 		state.searchHasError = flag;
 	}
+
 
 };

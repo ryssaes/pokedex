@@ -1,4 +1,4 @@
-import Factory from "./factory";
+import Factory from './factory';
 
 const coreApiUrl = 'https://pokeapi.co/api/v2';
 const commonInstance = Factory(coreApiUrl);
