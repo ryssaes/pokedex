@@ -102,10 +102,32 @@ export default {
 }
 
 @media (max-width: 767px){
-	.search .buttons .btn--search[data-v-9c55a7cc] {
+	.search .buttons .btn--search {
 	margin-top: 45px;
     width: 90px;
     padding: 2px;
+}
+
+@media (max-width: 560px){
+	.search .buttons .btn--search[data-v-303af3de] {
+    margin-top: 44px;
+    width: 91px;
+    padding: 2px;
+    border: 3px solid #000;
+}
+}
+
+@media (max-width: 550px) {
+    .search .buttons .btn--search[data-v-9c55a7cc] {
+        margin-top: 36px;
+        width: 90px;
+        padding: 2px;
+    }
+
+	.btn.btn--clear.bg--gray.text--yellow[data-v-9c55a7cc] {
+        margin-top: 39px;
+        padding: 4px;
+    }
 }
 
 .btn.btn--clear.bg--gray.text--yellow{

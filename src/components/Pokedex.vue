@@ -49,14 +49,13 @@ export default {
 
 @media (max-width: 560px) {
 
-	.pokedex--left[data-v-117fa644],
-	.pokedex--right[data-v-117fa644] {
-		position: relative;
-		display: flex;
-		height: 56%;
-		perspective: 1700px;
-		transform-style: preserve-3d;
-	}
+	.pokedex--left[data-v-117fa644], .pokedex--right[data-v-117fa644] {
+    position: relative;
+    display: flex;
+    height: 65%;
+    perspective: 1700px;
+    transform-style: preserve-3d;
+}
 }
 
 @media (max-width: 550px) {

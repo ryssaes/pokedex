@@ -99,7 +99,7 @@ $triangle-color: color(yellow);
 }
 
 @media (max-width: 991px) {
-    .search__label[data-v-9c55a7cc] {
+    .search__label {
         height: 42%;
         padding: 12px 24px 24px;
     }
@@ -140,7 +140,7 @@ $triangle-color: color(yellow);
     }
 
 
-	.panel--back[data-v-3d22cd0f] {
+	.panel--back {
         top: 242px;
         right: 0;
         width: 496px;
