@@ -49,7 +49,7 @@ export default {
 
 @media (max-width: 560px) {
 
-	.pokedex--left[data-v-117fa644], .pokedex--right[data-v-117fa644] {
+	.pokedex--left{
     position: relative;
     display: flex;
     height: 65%;

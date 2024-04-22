@@ -106,7 +106,7 @@ $triangle-color: color(yellow);
 }
 
 @media (max-width: 767px) {
-	.panel--front[data-v-3d22cd0f] {
+	.panel--front{
 		top: 419px;
 		right: 0;
 		width: 475px;
@@ -114,7 +114,7 @@ $triangle-color: color(yellow);
 	}
 
 
-	.panel--back[data-v-3d22cd0f] {
+	.panel--back {
 		top: 410px;
 		right: 0;
 		width: 470px;
@@ -123,17 +123,17 @@ $triangle-color: color(yellow);
 }
 
 @media (max-width: 575px) {
-	.panel--front[data-v-3d22cd0f] {
+	.panel--front {
 		width: 509px;
 	}
 
-	.panel--back[data-v-3d22cd0f] {
+	.panel--back {
 		width: 509px;
 	}
 }
 
 @media (max-width: 560px) {
-	.panel--front[data-v-3d22cd0f][data-v-3d22cd0f] {
+	.panel--front {
 		width: 496px;
 		top: 503px;
 		right: 0;
@@ -143,7 +143,7 @@ $triangle-color: color(yellow);
 
 
 
-	.panel--back[data-v-3d22cd0f] {
+	.panel--back {
 		top: 490px;
 		right: 0;
 		width: 496px;
@@ -152,14 +152,14 @@ $triangle-color: color(yellow);
 }
 
 @media (max-width: 550px) {
-	.panel--front[data-v-3d22cd0f][data-v-3d22cd0f][data-v-3d22cd0f] {
+	.panel--front {
 		width: 320px;
 		top: 470px;
 		right: 0;
 		height: 280px;
 	}
 
-	.panel--back[data-v-3d22cd0f][data-v-3d22cd0f] {
+	.panel--back {
 		top: 471px;
 		right: 0;
 		width: 320px;

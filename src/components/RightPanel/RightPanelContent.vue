@@ -109,7 +109,7 @@ export default {
 }
 
 @media (max-width: 560px){
-	.search .buttons .btn--search[data-v-303af3de] {
+	.search .buttons .btn--search {
     margin-top: 44px;
     width: 91px;
     padding: 2px;
@@ -118,13 +118,13 @@ export default {
 }
 
 @media (max-width: 550px) {
-    .search .buttons .btn--search[data-v-9c55a7cc] {
+    .search .buttons .btn--search {
         margin-top: 36px;
         width: 90px;
         padding: 2px;
     }
 
-	.btn.btn--clear.bg--gray.text--yellow[data-v-9c55a7cc] {
+	.btn.btn--clear.bg--gray.text--yellow {
         margin-top: 39px;
         padding: 4px;
     }
