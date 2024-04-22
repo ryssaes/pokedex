@@ -3,6 +3,7 @@
 		<p v-if="isSearching" class="list--message">Looking for the pokemon</p>
 		<p v-else-if="hasSearchError" class="list--message">We couldn't find this pokemon</p>
 		<ListItem v-else-if="isPokemonSearch" v-bind="pokemonsList[0]" />
+		<PokemonDescription v-else-if="pokemonId" :id="pokemonId" />
 		<template v-else>
 			<ListItem v-for="pokemon in pokemonsList" :key="pokemon.id" v-bind="pokemon" />
 			<infinite-loading @infinite="infiniteHandler" />
@@ -14,11 +15,13 @@
 import { state, getters, actions } from '@/store';
 
 import ListItem from './ListItem.vue';
+import PokemonDescription from '../PokemonDescription/PokemonDescription.vue';
 
 export default {
 	name: 'List',
 	components: {
 		ListItem,
+		PokemonDescription,
 	},
 	computed: {
 		pokemonsList() {
@@ -33,6 +36,9 @@ export default {
 		hasSearchError() {
 			return state.searchHasError;
 		},
+		pokemonId(){
+			return state.pokemonId;
+		}
 	},
 	methods: {
 		async infiniteHandler($state) {
@@ -81,4 +87,35 @@ export default {
 		margin-top: 8px;
 	}
 }
+
+@media (max-width: 991px) {
+    .list[data-v-87fbdfe2] {
+        border: 10px solid #ffffff;
+    }
+}
+
+@media (max-width: 767px){
+.list{
+	width: 435px;
+}
+}
+
+@media (max-width: 575px) {
+	.list{
+        width: 470px;
+    }
+}
+
+@media (max-width: 560px) {
+    .list{
+        width: 454px;
+    }
+}
+
+@media (max-width: 550px) {
+    .list{
+        width: 280px;
+    }
+}
+
 </style>

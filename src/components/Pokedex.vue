@@ -8,42 +8,68 @@
 </template>
 
 <script>
-	import TopPanel from './TopPanel/TopPanel.vue';
-	import LeftPanel from './LeftPanel/LeftPanel.vue';
-	import RightPanel from './RightPanel/RightPanel.vue';
-	import Divider from './Divider/Divider.vue';
+import TopPanel from './TopPanel/TopPanel.vue';
+import LeftPanel from './LeftPanel/LeftPanel.vue';
+import RightPanel from './RightPanel/RightPanel.vue';
+import Divider from './Divider/Divider.vue';
 
-	export default {
-		name: 'Pokedex',
-		components: {
-			TopPanel,
-			LeftPanel,
-			RightPanel,
-			Divider,
-		},
-	};
+export default {
+	name: 'Pokedex',
+	components: {
+		TopPanel,
+		LeftPanel,
+		RightPanel,
+		Divider,
+	},
+};
 </script>
 
 <style lang="scss" scoped>
-	.pokedex {
-		max-width: 960px;
+.pokedex {
+	max-width: 960px;
+
+	@media (min-width: $viewport-medium) {
+		max-height: 700px;
+		flex-direction: row;
+	}
+
+	&--left,
+	&--right {
+		position: relative;
+		display: flex;
+		height: 50%;
+		perspective: 1700px;
+		transform-style: preserve-3d;
 
 		@media (min-width: $viewport-medium) {
-			max-height: 700px;
-			flex-direction: row;
-		}
-
-		&--left,
-		&--right {
-			position: relative;
-			display: flex;
-			height: 50%;
-			perspective: 1700px;
-			transform-style: preserve-3d;
-
-			@media (min-width: $viewport-medium) {
-				height: 100%;
-			}
+			height: 100%;
 		}
 	}
+}
+
+@media (max-width: 560px){
+	.pokedex--left[data-v-117fa644], .pokedex--right[data-v-117fa644] {
+    position: relative;
+    display: flex;
+    height: 56%;
+    perspective: 1700px;
+    transform-style: preserve-3d;
+}
+}
+
+@media (max-width: 550px) {
+	.pokedex {
+		width: 320px !important;
+	}
+
+	.pokedex--left[data-v-117fa644],
+	.pokedex--right[data-v-117fa644] {
+		position: relative;
+		display: flex;
+		height: 57%;
+		perspective: 1700px;
+		transform-style: preserve-3d;
+	}
+}
+
 </style>

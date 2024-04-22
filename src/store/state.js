@@ -27,4 +27,8 @@ export default Vue.observable({
 	limit: LIMIT,
 	// Deslocamento inicial na busca dos resultados, inicialmente definido como 0
 	offset: OFFSET,
+
+	pokemonId: null,
+
+	language: 'english', // Definindo o idioma padrão como inglês
 });

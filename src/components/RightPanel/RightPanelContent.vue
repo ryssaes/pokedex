@@ -100,4 +100,17 @@ export default {
 		}
 	}
 }
+
+@media (max-width: 767px){
+	.search .buttons .btn--search[data-v-9c55a7cc] {
+	margin-top: 45px;
+    width: 90px;
+    padding: 2px;
+}
+
+.btn.btn--clear.bg--gray.text--yellow{
+	margin-top: 45px;
+	padding: 4px
+}
+}
 </style>

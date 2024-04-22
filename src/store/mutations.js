@@ -2,8 +2,6 @@
 import state from './state';
 
 export default {
-
-
 	// Método para atualizar o deslocamento na busca dos resultados da Pokédex
 	updateOffset() {
 		// Incrementa o deslocamento pelo limite atual
@@ -41,6 +39,7 @@ export default {
 		// Define listHasError e searchHasError como false para limpar quaisquer indicadores de erro
 		state.listHasError = false;
 		state.searchHasError = false;
+		state.pokemonId = null;
 	},
 
 	// Adicionar o único pokemon que foi pesquisado
@@ -65,7 +64,15 @@ export default {
 	setSearchHasError(flag) {
 		// Define o estado de searchHasError com o valor fornecido
 		state.searchHasError = flag;
+	},
+
+	setPokemonId(id = null){
+		state.isPokemonSearch = false;
+		state.pokemonId = id;
+	},
+
+	// Método para definir o idioma selecionado
+	setLanguage(language) {
+		state.language = language;
 	}
-
-
 };

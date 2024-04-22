@@ -52,4 +52,17 @@
 		box-shadow: inset 0 10px 0 0 color('red-00'), inset 0 -10px 0 0 color('red-03');
 	}
 }
+
+@media (max-width: 560px) {
+    .divider {
+        top: 56%;
+    }
+}
+
+
+@media (max-width: 550px) {
+    .divider {
+        top: 56%;
+    }
+}
 </style>

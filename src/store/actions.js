@@ -30,7 +30,7 @@ export default {
 
 				// Aguarda todas as requisições individuais serem concluídas.
 				const pokemonsInfo = await Promise.all(prepareInfo);
-
+				console.log(pokemonsInfo)
 				// Chama o método de mutação para adicionar os pokémons à lista principal da Pokédex.
 				setList(pokemonsInfo);
 			}
