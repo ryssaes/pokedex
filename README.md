@@ -5,7 +5,7 @@ A Pokédex Vue.js é uma aplicação web interativa que funciona como uma encicl
 ## Tecnologias Utilizadas
 
 - Vue.js
-- VueBootstrap
+- Bootstrap
 - SCSS
 - PokéAPI
 
