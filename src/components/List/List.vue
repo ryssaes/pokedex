@@ -89,8 +89,9 @@ export default {
 }
 
 @media (max-width: 991px) {
-    .list[data-v-87fbdfe2] {
-        border: 10px solid #ffffff;
+    .list[data-v-892808b6] {
+        max-height: 72%;
+        border: 10px solid #fff;
     }
 }
 
