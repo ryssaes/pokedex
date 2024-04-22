@@ -55,7 +55,7 @@
 
 @media (max-width: 560px) {
     .divider {
-        top: 56%;
+        top: 60%;
     }
 }
 
