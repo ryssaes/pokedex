@@ -165,7 +165,7 @@ $triangle-color: color(yellow);
 	}
 }
 
-@media (max-width: 767px) and (max-height: 850px) {
+@media (max-width: 767px) and (max-height: 900px) {
     .panel--front {
         top: 95%;
     }
@@ -174,6 +174,18 @@ $triangle-color: color(yellow);
         top: 373px;
         height: 367px;
     }
+
+
 }
+
+@media (max-width: 545px) and (max-height: 900px) {
+	.panel--back{
+		top: 422px;
+        height: 418px;
+    }
+
+
+}
+
 
 </style>
