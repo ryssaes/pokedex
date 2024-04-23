@@ -1,8 +1,10 @@
 # Pokédex Vue.js (CÓDIGO ESTÁ NA BRANCH MASTER)
 
 aqui está o domain: https://pokedex-tan-one-39.vercel.app/
-
-[Veja a demonstração em vídeo](./demonstração.mp4)
+<video width="640" height="360" controls>
+  <source src="./demonstração.mp4" type="video/mp4">
+  Seu navegador não suporta a tag de vídeo.
+</video>
 
 A Pokédex Vue.js é uma aplicação web interativa que funciona como uma enciclopédia digital para os Pokémon. Desenvolvida utilizando o framework Vue.js, esta Pokédex permite aos usuários explorar uma vasta coleção de informações sobre os Pokémon, incluindo seus nomes, tipos, habilidades e estatísticas.
 
